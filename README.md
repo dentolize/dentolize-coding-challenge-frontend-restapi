@@ -52,8 +52,9 @@ In this task, you will be creating a CRM Dashboard with the following features:
 ### Routing
 
 5. Implement routing using react-router. The application should have two routes:
-   - `/:` Displays the customer list.
+   - `/` Displays the customer list.
    - `/customer/:id` Displays the details of a specific customer based on their id.
+   - `/customer/new` Displays a form to add a new customer.
 
 ### Add New Customer
 
