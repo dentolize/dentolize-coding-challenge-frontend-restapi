@@ -1,6 +1,10 @@
+// Helpers
 import { FC } from "react";
 import { useCustomersContext } from "../utils/Hooks";
 import { CustomerInterface } from "../utils/Interface";
+
+// Nested components
+import SingleCustomer from "./SingleCustomer";
 
 const CustomersList: FC = () => {
   // get customers list from Customers store
@@ -9,7 +13,9 @@ const CustomersList: FC = () => {
   return (
     <section>
       {customersList.map((customerData: CustomerInterface) => {
-        return <p key={customerData.id}>{customerData.firstName}</p>;
+        return (
+          <SingleCustomer key={customerData.id} customerData={customerData} />
+        );
       })}
     </section>
   );

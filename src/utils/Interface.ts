@@ -16,6 +16,11 @@ export interface CustomersContextInterface {
   setCustomers: (customers: CustomerInterface[]) => void;
 }
 
+// For single customer props
+export interface SingleCustomerPropsInterface {
+  customerData:CustomerInterface
+}
+
 // For children in the provider
 export interface ChildrenInterface {
   children: ReactNode;
