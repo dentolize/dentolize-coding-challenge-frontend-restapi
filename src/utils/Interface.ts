@@ -46,3 +46,11 @@ export interface OrdersContextInterface {
 export interface SingleOrderPropsInterface {
   orderData:OrderInterface
 }
+
+
+// Add Customer interfaces 
+export interface InputFieldProps {
+  value: string;
+  placeholder: string;
+  onChange: (value: string) => void;
+}
