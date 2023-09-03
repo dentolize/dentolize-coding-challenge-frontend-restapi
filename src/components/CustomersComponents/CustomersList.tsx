@@ -1,7 +1,7 @@
 // Helpers
 import { FC } from "react";
-import { useCustomersContext } from "../utils/Hooks";
-import { CustomerInterface } from "../utils/Interface";
+import { useCustomersContext } from "../../utils/Hooks";
+import { CustomerInterface } from "../../utils/Interface";
 
 // Nested components
 import SingleCustomer from "./SingleCustomer";
