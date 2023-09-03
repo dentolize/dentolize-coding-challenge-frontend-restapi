@@ -7,6 +7,9 @@ import { Link, useParams } from "react-router-dom";
 // Nested Components
 import SingleOrder from "./SingleOrder";
 
+// Styled Components
+import { OrdersContainer } from "../styled/OrdersStyled/Order.styled";
+
 const OrdersList: FC = () => {
   // get current customer orders list & setCustomerOrders from context
   const { customerOrdersList, setCustomerOrders } = useOrdersContext();
@@ -18,12 +21,14 @@ const OrdersList: FC = () => {
     if (current_customer_id) setCustomerOrders(parseInt(current_customer_id));
   }, [current_customer_id, setCustomerOrders]);
   return (
-    <section>
+    <>
       <Link to="/">Go Back</Link>
-      {customerOrdersList.map((order: OrderInterface) => {
-        return <SingleOrder key={order.id} orderData={order} />;
-      })}
-    </section>
+      <OrdersContainer>
+        {customerOrdersList.map((order: OrderInterface) => {
+          return <SingleOrder key={order.id} orderData={order} />;
+        })}
+      </OrdersContainer>
+    </>
   );
 };
 

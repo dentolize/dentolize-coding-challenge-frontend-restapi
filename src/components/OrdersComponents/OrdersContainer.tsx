@@ -5,6 +5,9 @@ import { useOrdersContext } from "../../utils/Hooks";
 // Nested Components
 import OrdersList from "./OrdersList";
 
+// Styled Components
+import { Container } from "../styled/Container.styled";
+
 const OrdersContainer: FC = () => {
   // get setOrders method to store orders list to the store
   const { setOrders } = useOrdersContext();
@@ -18,9 +21,10 @@ const OrdersContainer: FC = () => {
       });
   }, [setOrders]);
   return (
-    <main>
+    <Container>
+      <h1>Customer's Orders</h1>
       <OrdersList />
-    </main>
+    </Container>
   );
 };
 

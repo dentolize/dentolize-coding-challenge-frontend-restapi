@@ -6,6 +6,9 @@ import { useCustomersContext } from "../../utils/Hooks";
 import CustomersList from "./CustomersList";
 import { Link } from "react-router-dom";
 
+// styled components
+import { Container } from "../styled/Container.styled";
+
 const CustomersContainer: FC = () => {
   // get setCustomers method to store customers list to the store
   const { setCustomers } = useCustomersContext();
@@ -20,10 +23,11 @@ const CustomersContainer: FC = () => {
   }, [setCustomers]);
 
   return (
-    <main>
+    <Container>
+      <h1>CRM Dashboard</h1>
       <Link to="/add_customer">Add New Customer</Link>
       <CustomersList />
-    </main>
+    </Container>
   );
 };
 

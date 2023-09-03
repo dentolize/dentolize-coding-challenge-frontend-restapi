@@ -1,16 +1,20 @@
 // Helpers
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 // Nested Components
 import AddCustomerForm from "./AddCustomerForm";
-import { Link } from "react-router-dom";
+
+// Styled Components
+import { Container } from "../../styled/Container.styled";
 
 const AddCustomerContainer: FC = () => {
   return (
-    <main>
+    <Container>
+      <h1>Add New Customer</h1>
       <Link to="/">Go back</Link>
       <AddCustomerForm />
-    </main>
+    </Container>
   );
 };
 

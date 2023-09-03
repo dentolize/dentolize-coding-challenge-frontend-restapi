@@ -7,9 +7,13 @@ import HomePage from "./Views/HomePage";
 import OrdersPage from "./Views/OrdersPage";
 import AddCustomerPage from "./Views/AddCustomerPage";
 
+// Styled components
+import { GlobalStyles } from "./components/styled/Global.styled";
+
 function App() {
   return (
     <Router>
+      <GlobalStyles />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="orders/:current_customer_id" element={<OrdersPage />} />

@@ -7,6 +7,9 @@ import InputField from "./InputField";
 import { useNavigate } from "react-router-dom";
 import { CustomerInterface } from "../../../utils/Interface";
 
+// Styled Component
+import { FormStyled } from "../../styled/AddCustomerStyled/AddCustomer.Styled";
+
 const AddCustomerForm: FC = () => {
   // get customersList to add to it new customer
   // get setCustomers to set new list of customers
@@ -55,29 +58,35 @@ const AddCustomerForm: FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {/* First Name Input  */}
-      <InputField
-        value={firstName}
-        placeholder="First Name"
-        onChange={setFirstName}
-      />
-      {/* Last Name Input  */}
-      <InputField
-        value={lastName}
-        placeholder="Last Name"
-        onChange={setLastName}
-      />
-      {/* Email Input  */}
-      <InputField value={email} placeholder="Email" onChange={setEmail} />
-      {/* Phone Input  */}
-      <InputField
-        value={phone}
-        placeholder="Phone Number"
-        onChange={setPhone}
-      />
-      <input type="submit" value="Add Customer" />
-    </form>
+    <FormStyled onSubmit={handleSubmit}>
+      <div>
+        {/* First Name Input  */}
+        <InputField
+          value={firstName}
+          placeholder="First Name"
+          onChange={setFirstName}
+        />
+        {/* Last Name Input  */}
+        <InputField
+          value={lastName}
+          placeholder="Last Name"
+          onChange={setLastName}
+        />
+      </div>
+      <div>
+        {/* Email Input  */}
+        <InputField value={email} placeholder="Email" onChange={setEmail} />
+        {/* Phone Input  */}
+        <InputField
+          value={phone}
+          placeholder="Phone Number"
+          onChange={setPhone}
+        />
+      </div>
+      <div>
+        <input type="submit" value="Add Customer" />
+      </div>
+    </FormStyled>
   );
 };
 
