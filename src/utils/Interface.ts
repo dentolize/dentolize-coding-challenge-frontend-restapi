@@ -40,3 +40,8 @@ export interface OrdersContextInterface {
   ordersList: OrderInterface[];
   setOrders: (orders: OrderInterface[]) => void;
 }
+
+// For single customer props
+export interface SingleOrderPropsInterface {
+  orderData:OrderInterface
+}

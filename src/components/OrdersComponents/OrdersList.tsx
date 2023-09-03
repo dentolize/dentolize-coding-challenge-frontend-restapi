@@ -2,6 +2,7 @@
 import { FC } from "react";
 import { useOrdersContext } from "../../utils/Hooks";
 import { OrderInterface } from "../../utils/Interface";
+import SingleOrder from "./SingleOrder";
 
 const OrdersList: FC = () => {
   const { ordersList } = useOrdersContext();
@@ -9,13 +10,7 @@ const OrdersList: FC = () => {
   return (
     <section>
       {ordersList.map((order: OrderInterface) => {
-        return (
-          <div key={order.id}>
-            {order.customer_id}
-            <br />
-            {order.id}, {order.orderNumber}
-          </div>
-        );
+        return <SingleOrder key={order.id} orderData={order} />;
       })}
     </section>
   );
