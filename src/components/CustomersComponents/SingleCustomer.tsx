@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SingleCustomerPropsInterface } from "../utils/Interface";
+import { SingleCustomerPropsInterface } from "../../utils/Interface";
 import { Link } from "react-router-dom";
 
 const SingleCustomer: FC<SingleCustomerPropsInterface> = ({ customerData }) => {

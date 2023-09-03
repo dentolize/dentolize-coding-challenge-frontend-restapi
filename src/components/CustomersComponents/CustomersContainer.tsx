@@ -1,6 +1,6 @@
 // Helpers
 import { FC, useEffect } from "react";
-import { useCustomersContext } from "../utils/Hooks";
+import { useCustomersContext } from "../../utils/Hooks";
 
 // Nested components
 import CustomersList from "./CustomersList";
