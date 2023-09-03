@@ -28,6 +28,9 @@ const AddCustomerForm: FC = () => {
     // prevent default behavior of submitting and reloading
     event.preventDefault();
     // validate all inputs were filled
+    // More validation can be added using regular expression but needs more time.
+    // for email: const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
     if (firstName && lastName && email && phone) {
       // willl ignore next line error since I could not find a solution yet
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -62,12 +65,14 @@ const AddCustomerForm: FC = () => {
       <div>
         {/* First Name Input  */}
         <InputField
+          type="string"
           value={firstName}
           placeholder="First Name"
           onChange={setFirstName}
         />
         {/* Last Name Input  */}
         <InputField
+          type="string"
           value={lastName}
           placeholder="Last Name"
           onChange={setLastName}
@@ -75,9 +80,15 @@ const AddCustomerForm: FC = () => {
       </div>
       <div>
         {/* Email Input  */}
-        <InputField value={email} placeholder="Email" onChange={setEmail} />
+        <InputField
+          type="email"
+          value={email}
+          placeholder="Email"
+          onChange={setEmail}
+        />
         {/* Phone Input  */}
         <InputField
+          type="tel"
           value={phone}
           placeholder="Phone Number"
           onChange={setPhone}

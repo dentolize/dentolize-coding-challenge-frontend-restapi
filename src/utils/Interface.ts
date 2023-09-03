@@ -50,6 +50,7 @@ export interface SingleOrderPropsInterface {
 
 // Add Customer interfaces 
 export interface InputFieldProps {
+  type: string;
   value: string;
   placeholder: string;
   onChange: (value: string) => void;
