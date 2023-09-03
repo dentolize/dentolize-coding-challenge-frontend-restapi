@@ -25,3 +25,18 @@ export interface SingleCustomerPropsInterface {
 export interface ChildrenInterface {
   children: ReactNode;
 }
+
+
+// Orders Interfaces
+export interface OrderInterface {
+  id: number;
+  customer_id: number;
+  orderNumber: string;
+  orderDate: string;
+  orderStatus: string;
+}
+
+export interface OrdersContextInterface {
+  ordersList: OrderInterface[];
+  setOrders: (orders: OrderInterface[]) => void;
+}
