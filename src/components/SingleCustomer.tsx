@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const SingleCustomer: FC<SingleCustomerPropsInterface> = ({ customerData }) => {
   return (
-    <Link to="/">
+    <Link to={`/orders/${customerData.id}`}>
       <div>
         {customerData.firstName}, {customerData.lastName}, {customerData.email},{" "}
         {customerData.phone}{" "}
