@@ -1,5 +1,9 @@
+// Helpers
 import { FC, useEffect } from "react";
 import { useCustomersContext } from "../utils/Hooks";
+
+// Nested components
+import CustomersList from "./CustomersList";
 
 const CustomersContainer: FC = () => {
   // get setCustomers method to store customers list to the store
@@ -14,7 +18,11 @@ const CustomersContainer: FC = () => {
       });
   }, [setCustomers]);
 
-  return <div>CustomersContainer</div>;
+  return (
+    <main>
+      <CustomersList />
+    </main>
+  );
 };
 
 export default CustomersContainer;
