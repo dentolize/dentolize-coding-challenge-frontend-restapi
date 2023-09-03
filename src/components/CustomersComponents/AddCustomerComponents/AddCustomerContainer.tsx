@@ -3,12 +3,14 @@ import { FC } from "react";
 
 // Nested Components
 import AddCustomerForm from "./AddCustomerForm";
+import { Link } from "react-router-dom";
 
 const AddCustomerContainer: FC = () => {
   return (
-    <div>
+    <main>
+      <Link to="/">Go back</Link>
       <AddCustomerForm />
-    </div>
+    </main>
   );
 };
 

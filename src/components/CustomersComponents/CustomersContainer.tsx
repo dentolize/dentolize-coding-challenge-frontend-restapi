@@ -4,6 +4,7 @@ import { useCustomersContext } from "../../utils/Hooks";
 
 // Nested components
 import CustomersList from "./CustomersList";
+import { Link } from "react-router-dom";
 
 const CustomersContainer: FC = () => {
   // get setCustomers method to store customers list to the store
@@ -20,6 +21,7 @@ const CustomersContainer: FC = () => {
 
   return (
     <main>
+      <Link to="/add_customer">Add New Customer</Link>
       <CustomersList />
     </main>
   );
