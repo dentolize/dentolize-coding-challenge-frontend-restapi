@@ -2,7 +2,7 @@
 import { FC, useEffect } from "react";
 import { useOrdersContext } from "../../utils/Hooks";
 import { OrderInterface } from "../../utils/Interface";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 // Nested Components
 import SingleOrder from "./SingleOrder";
@@ -19,6 +19,7 @@ const OrdersList: FC = () => {
   }, [current_customer_id, setCustomerOrders]);
   return (
     <section>
+      <Link to="/">Go Back</Link>
       {customerOrdersList.map((order: OrderInterface) => {
         return <SingleOrder key={order.id} orderData={order} />;
       })}
