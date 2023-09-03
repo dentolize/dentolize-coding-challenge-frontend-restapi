@@ -1,5 +1,9 @@
+// Helpers
 import { FC, useEffect } from "react";
 import { useOrdersContext } from "../../utils/Hooks";
+
+// Nested Components
+import OrdersList from "./OrdersList";
 
 const OrdersContainer: FC = () => {
   // get setOrders method to store orders list to the store
@@ -13,7 +17,11 @@ const OrdersContainer: FC = () => {
         setOrders(res.orders);
       });
   }, [setOrders]);
-  return <main></main>;
+  return (
+    <main>
+      <OrdersList />
+    </main>
+  );
 };
 
 export default OrdersContainer;
