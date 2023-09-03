@@ -1,36 +1,15 @@
+import { FC, createContext, useCallback, useContext, useState } from "react";
+
 import {
-  FC,
-  ReactNode,
-  createContext,
-  useCallback,
-  useContext,
-  useState,
-} from "react";
-
-// Customer interface to set Single customer data format
-export interface CustomerInterface {
-  id: number;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-}
-
-// Set type of properties and method provided by CustomerContext
-export interface CustomersContextInterface {
-  customersList: CustomerInterface[];
-  setCustomers: (customers: CustomerInterface[]) => void;
-}
+  CustomerInterface,
+  CustomersContextInterface,
+  ChildrenInterface,
+} from "../utils/Interface";
 
 // Create Customer Context
 const CustomersContext = createContext<CustomersContextInterface | undefined>(
   undefined
 );
-
-// For children in the provider
-interface ChildrenInterface {
-  children: ReactNode;
-}
 
 export const CustomersProvider: FC<ChildrenInterface> = ({ children }) => {
   // store customers data in customersList
