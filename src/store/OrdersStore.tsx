@@ -1,4 +1,4 @@
-import { FC, createContext, useCallback, useState } from "react";
+import { FC, createContext, useCallback, useState, useEffect } from "react";
 
 import {
   OrderInterface,
@@ -19,10 +19,13 @@ export const OrdersProvider: FC<ChildrenInterface> = ({ children }) => {
     OrderInterface[]
   >([]);
 
-  // allow setting orders list from children components
-  // useCallback to prevent unintended rerender due to use of useEffect in the consuming component
-  const setOrders = useCallback((orders: OrderInterface[]) => {
-    setOrdersList(orders);
+  // fetch data and store it to the Orders 
+  useEffect(() => {
+    fetch("../db.json")
+      .then((res) => res.json())
+      .then((res) => {
+        setOrdersList(res.orders);
+      });
   }, []);
 
   // allow setting single customers orders from children components
@@ -38,9 +41,7 @@ export const OrdersProvider: FC<ChildrenInterface> = ({ children }) => {
   );
 
   return (
-    <OrdersContext.Provider
-      value={{ setCustomerOrders, setOrders, customerOrdersList }}
-    >
+    <OrdersContext.Provider value={{ setCustomerOrders, customerOrdersList }}>
       {children}
     </OrdersContext.Provider>
   );

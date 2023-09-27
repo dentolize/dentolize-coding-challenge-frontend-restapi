@@ -37,7 +37,6 @@ export interface OrderInterface {
 }
 
 export interface OrdersContextInterface {
-  setOrders: (orders: OrderInterface[]) => void;
   customerOrdersList: OrderInterface[];
   setCustomerOrders: (customer_id: number) => void;
 }
