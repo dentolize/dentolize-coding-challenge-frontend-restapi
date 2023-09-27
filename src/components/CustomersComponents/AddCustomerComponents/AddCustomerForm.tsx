@@ -1,6 +1,5 @@
 // Helpers
 import { FC, useState, FormEvent } from "react";
-import { useCustomersContext } from "../../../utils/Hooks";
 
 // Nested Components
 import InputField from "./InputField";
@@ -11,10 +10,6 @@ import { CustomerInterface } from "../../../utils/Interface";
 import { FormStyled } from "../../styled/AddCustomerStyled/AddCustomer.Styled";
 
 const AddCustomerForm: FC = () => {
-  // get customersList to add to it new customer
-  // get setCustomers to set new list of customers
-  const { customersList } = useCustomersContext();
-
   const navigate = useNavigate();
 
   // Form local state
@@ -32,19 +27,19 @@ const AddCustomerForm: FC = () => {
     // for email: const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
     if (firstName && lastName && email && phone) {
-      // willl ignore next line error since I could not find a solution yet
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const newCustomersList: CustomerInterface[] = [
-        ...customersList,
-        {
-          id: Math.random() * 1000,
-          firstName,
-          lastName,
-          email,
-          phone,
-        },
-      ];
-      // here we could call fetch Post API request to add new customer to db.json
+      const newCustomer: CustomerInterface = {
+        id: Math.random() * 1000,
+        firstName,
+        lastName,
+        email,
+        phone,
+      };
+      // fetch Post API request to add new customer to db.json
+      fetch("http://localhost:4000/customers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newCustomer),
+      });
 
       // empty fields
       setFirstName("");
