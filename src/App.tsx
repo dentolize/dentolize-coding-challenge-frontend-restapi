@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./Views/HomePage";
 import OrdersPage from "./Views/OrdersPage";
 import AddCustomerPage from "./Views/AddCustomerPage";
+import { OrdersProvider } from "./store/OrdersStore";
 
 // Styled components
 import { GlobalStyles } from "./components/styled/Global.styled";
@@ -14,11 +15,13 @@ function App() {
   return (
     <Router>
       <GlobalStyles />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="orders/:current_customer_id" element={<OrdersPage />} />
-        <Route path="/add_customer" element={<AddCustomerPage />} />
-      </Routes>
+      <OrdersProvider>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="orders/:current_customer_id" element={<OrdersPage />} />
+          <Route path="/add_customer" element={<AddCustomerPage />} />
+        </Routes>
+      </OrdersProvider>
     </Router>
   );
 }
